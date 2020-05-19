@@ -1,19 +1,19 @@
-# emotion-datav
+# 情感分析 DataV
 
-## Project setup
-```
+## 项目初始化
+
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+## 项目运行
+
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
+## 项目编译
+
+```bash
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
