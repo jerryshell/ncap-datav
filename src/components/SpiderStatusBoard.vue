@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import infoApi from '../api/info'
+
 export default {
   data () {
     return {
@@ -45,7 +47,24 @@ export default {
       },
     }
   },
-  methods: {},
+  mounted () {
+    this.fetchData()
+    setInterval(this.fetchData, 5 * 1000)
+  },
+  methods: {
+    fetchData () {
+      infoApi.info().then(res => {
+        console.log('info()', res)
+        let value = 0
+        if (res.data.spiderServer.ok) {
+          value = res.data.spiderServer.loadavg.loadavg_5 * 100
+        }
+        console.log('spiderServer loadavg_5', value)
+        this.option.series[0].data[0].value = value
+        this.option = { ...this.option }
+      })
+    },
+  },
 }
 </script>
 

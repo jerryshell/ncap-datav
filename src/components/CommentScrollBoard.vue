@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import commentApi from '../api/comment'
+
 export default {
   data () {
     return {
@@ -15,7 +17,7 @@ export default {
         // headerBGC: '',
         oddRowBGC: '',
         evenRowBGC: '',
-        rowNum: 14,
+        rowNum: 15,
         data: [
           ['可怜的孩子 这当妈的真该死', '1.9543003290891647', '98.04570078849792'],
           ['明显渎职！', '43.68571639060974', '56.31428360939026'],
@@ -38,6 +40,26 @@ export default {
         ],
       },
     }
+  },
+  mounted () {
+    this.fetchData()
+    setInterval(this.fetchData, 60 * 1000)
+  },
+  methods: {
+    fetchData () {
+      this.listOrderByUpdateDateTimeDESC()
+    },
+    listOrderByUpdateDateTimeDESC () {
+      commentApi.listOrderByUpdateDateTimeDESC().then(res => {
+        this.config.data = []
+        console.log('listOrderByUpdateDateTimeDESC()', res)
+        for (let i = 0; i < res.data.length; i++) {
+          let item = res.data[i]
+          this.config.data.push([item.content, item.p, item.n])
+        }
+        this.config = { ...this.config }
+      })
+    },
   },
 }
 </script>

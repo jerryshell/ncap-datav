@@ -13,6 +13,9 @@
 </template>
 
 <script>
+import commentApi from '../api/comment'
+import infoApi from '../api/info'
+
 export default {
   data () {
     return {
@@ -40,11 +43,35 @@ export default {
       },
     }
   },
+  mounted () {
+    this.fetchData()
+    setInterval(this.fetchData, 5 * 1000)
+  },
   methods: {
     handleClick () {
       let newConfig = { ...this.config }
       newConfig.number[0] += 1
       this.config = newConfig
+    },
+    fetchData () {
+      this.countPAndN().then(() => {
+        this.getUseCount()
+      })
+    },
+    countPAndN () {
+      return commentApi.countPAndN().then(res => {
+        console.log('countPAndN()', res)
+        this.config2.data[0].value = res.data.pCount
+        this.config2.data[1].value = res.data.nCount
+        this.config2 = { ...this.config2 }
+      })
+    },
+    getUseCount () {
+      return infoApi.info().then(res => {
+        console.log('info()', res)
+        this.config.number[0] = res.data.analyseServer.use_count
+        this.config = { ...this.config }
+      })
     },
   },
 }
