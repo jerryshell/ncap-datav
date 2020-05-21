@@ -25,16 +25,15 @@ export default {
       },
       config2: {
         showOriginValue: true,
-        color: ['#D94551', '#8EE2F0'],
-        radius: '60%',
+        color: ['#8EE2F0', '#D94551'],
         data: [
           {
             name: '正面评论',
-            value: 555,
+            value: 20,
           },
           {
             name: '负面评论',
-            value: 444,
+            value: 10,
           },
         ],
         digitalFlopStyle: {
@@ -61,8 +60,15 @@ export default {
     countPAndN () {
       return commentApi.countPAndN().then(res => {
         console.log('countPAndN()', res)
-        this.config2.data[0].value = res.data.pCount
-        this.config2.data[1].value = res.data.nCount
+        this.config2.data = []
+        this.config2.data.push({
+          name: '正面评论',
+          value: res.data.pCount,
+        })
+        this.config2.data.push({
+          name: '负面评论',
+          value: res.data.nCount,
+        })
         this.config2 = { ...this.config2 }
       })
     },
