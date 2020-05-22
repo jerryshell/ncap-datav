@@ -1,6 +1,6 @@
 <template>
   <div>
-    <dv-border-box-11 style="width: 100%; height: 200px" title="采集系统负载状态">
+    <dv-border-box-11 style="width: 100%; height: 180px" title="采集系统负载状态">
       <dv-charts :option="option" style="padding-top: 35px"/>
     </dv-border-box-11>
   </div>

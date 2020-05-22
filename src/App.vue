@@ -13,6 +13,6 @@
 @import "assets/bootstrap-grid.min.css";
 
 body {
-  margin: 0;
+  margin: 0 !important;
 }
 </style>

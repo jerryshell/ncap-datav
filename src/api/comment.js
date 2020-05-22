@@ -12,5 +12,5 @@ export default {
 
   countPAndN () {
     return axios.get(`/comment/countPAndN`)
-  }
+  },
 }

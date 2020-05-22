@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="row" style="padding-left: 30px; padding-top: 10px">
+        <div class="row" style="padding-top: 10px">
           <div class="col-4">
             <CommentScrollBoard></CommentScrollBoard>
           </div>
@@ -68,5 +68,9 @@ export default {
 #title {
   width: 100%;
   height: 60px;
+}
+
+.row {
+  margin: 0 !important;
 }
 </style>
