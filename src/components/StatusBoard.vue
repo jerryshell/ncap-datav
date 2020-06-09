@@ -2,9 +2,9 @@
   <div>
     <dv-border-box-8 style="width: 100%; height: 600px">
       <dv-border-box-10>
-        <h1 style="text-align: center; padding-top: 10px">今日分析次数</h1>
+        <h1 style="text-align: center; padding-top: 10px">系统分析次数</h1>
         <dv-digital-flop :config="config" style="width:100%; height:50px; margin: 0 auto;"/>
-        <!--        <button @click="handleClick()">今日分析次数+1</button>-->
+        <!--        <button @click="handleClick()">分析次数+1</button>-->
         <h1 style="text-align: center;padding-top: 10px">今日评论情况</h1>
         <dv-active-ring-chart :config="config2" style="width:300px; height:300px; margin: 0 auto;"/>
       </dv-border-box-10>
