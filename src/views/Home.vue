@@ -7,7 +7,7 @@
         <div class="row">
           <div class="offset-2 col-8">
             <dv-decoration-11 id="title">
-              负面新闻检测系统数据大屏
+              新闻评论分析平台数据大屏
             </dv-decoration-11>
           </div>
         </div>
